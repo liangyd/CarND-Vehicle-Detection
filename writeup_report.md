@@ -114,7 +114,7 @@ Here's an example result showing the heatmap from a single image.
 ### Video Implementation
 
 #### 1. Provide a link to your final video output. 
-Here's a [link](project_video_output.mp4) to my video result. The video output was generated with detected vehicle positions drawn in bounding boxes.
+Here's a [link](./project_video_out.mp4) to my video result. The video output was generated with detected vehicle positions drawn in bounding boxes.
 
 
 #### 2. Describe how you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
