@@ -7,7 +7,7 @@
 The goals of this project are the following:
 
 * Perform a Histogram of Oriented Gradients (HOG) feature extraction on a labeled training set of images and train a classifier Linear SVM classifier
-* Apply a color transform and append binned color features, as well as histograms of color, to your HOG feature vector
+* Apply a color transform and binned color features, as well as histograms of color, to your HOG feature vector
 * Normalize the features and randomize a selection for training and testing
 * Implement a sliding-window technique and use the trained classifier to search for vehicles in images.
 * Run the pipeline on a video stream and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
@@ -63,7 +63,7 @@ Then I concatenated the color channels into one feature vector. Here is an examp
 
 #### 3. Describe how you trained a classifier using your selected features.
 
-I combined the HOG, color histogram and spatial binned features into one feature vector. The length of the feature vector is 4356.Then I normalized this vector. Here is an example for the raw feature vector and the normalized vector.
+I combined the HOG, color histogram and spatial binned features into one feature vector. The length of the feature vector is 4356. Then I normalized this vector. Here is an example for the raw feature vector and the normalized vector.
 
 ![alt text][image4]
 
@@ -79,9 +79,12 @@ I separated the data set into training and validation set. Then, I used the line
 I defined the `slide_window` function for the sliding window search. I decided to search the window positions at different scales. 
 
 Here is an example with a window size 64x64 and 50% overlap. 
+
 ![alt text][image5]
 
+
 Here is an example with a window size 192x192 and 50% overlap. 
+
 ![alt text][image6]
 
 
@@ -94,7 +97,7 @@ I used the sliding window search with four window sizes: 48x48, 64x64, 96x96, 12
 
 ![alt text][image9]
 
-#### 3. Improve the sliding window search method
+#### 3. HOG Sub-sampling Window Search
 
 The sliding window search needs to calculate the HOG features within each window in the same image. A more efficient approach is to extract the HOG features once and these features can be sub-sampled for all the overlapping windows. The codes for this new method are listed in the `find_cars` function.
 
@@ -111,7 +114,7 @@ Here's an example result showing the heatmap from a single image.
 ### Video Implementation
 
 #### 1. Provide a link to your final video output. 
-Here's a [link](./project_video_output.mp4) to my video result. The video output was generated with detected vehicle positions drawn in bounding boxes.
+Here's a [link](project_video_output.mp4) to my video result. The video output was generated with detected vehicle positions drawn in bounding boxes.
 
 
 #### 2. Describe how you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
